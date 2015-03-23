@@ -24,3 +24,7 @@ app.use('/api', apiRouter);
 
 app.listen(config.port);
 console.log('The app is running on port ' + config.port);
+
+app.get('/list-colleges', function(req, res){
+	res.render('/listColleges');
+});
