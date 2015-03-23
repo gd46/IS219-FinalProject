@@ -1,0 +1,30 @@
+{
+  "name": "IS219_Project_1",
+  "version": "1.0.0",
+  "description": "Project for class, parse csv and import into mongo as well as display the data",
+  "main": "server.js",
+  "scripts": {
+    "test": "gulp test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binoy14/IS219-Project1.git"
+  },
+  "keywords": [
+    "csv",
+    "mongodb",
+    "node"
+  ],
+  "author": "Binoy Patel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binoy14/IS219-Project1/issues"
+  },
+  "homepage": "https://github.com/binoy14/IS219-Project1",
+  "dependencies": {
+    "csv": "^0.4.1",
+    "express": "^4.12.3",
+    "mongoose": "^3.8.25"
+  }
+}
