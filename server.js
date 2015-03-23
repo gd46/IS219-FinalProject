@@ -5,11 +5,14 @@ var express = require('express'),
     config = require('./config');
 
 // conect to db
-//mongoose.connect(config.database);
+mongoose.connect(config.database);
 
 /*
 	App Configuration
  */
+
+app.set('view engine', 'jade');
+app.set('views', path.join(__dirname + '/app/views'));
 
 // Logging
 app.use(morgan('dev'));
