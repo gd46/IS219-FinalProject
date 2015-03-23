@@ -12,7 +12,9 @@ mongoose.connect(config.database);
  */
 
 app.set('view engine', 'jade');
-app.set('views', path.join(__dirname + '/app/views'));
+//app.set('views', path.join(__dirname + '/app/views'));
+// The above through an error, the below works
+app.set('views', __dirname + '/views');
 
 // Logging
 app.use(morgan('dev'));
