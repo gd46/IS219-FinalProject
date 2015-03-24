@@ -8,4 +8,5 @@ module.exports = function(app, express) {
         .get(getDataController)
         .post(postDataController);
 
+    return apiRouter;
 }

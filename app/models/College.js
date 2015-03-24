@@ -1,4 +1,5 @@
-var Schema = require('mongoose').Schema,
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
     config = require('../../config');
 
 var CollegeSchema = new Schema({

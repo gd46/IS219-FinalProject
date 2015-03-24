@@ -2,6 +2,7 @@ var express = require('express'),
     app = express(),
     morgan = require('morgan'),
     mongoose = require('mongoose'),
+    path = require('path'),
     config = require('./config');
 
 // conect to db
