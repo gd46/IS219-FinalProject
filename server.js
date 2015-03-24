@@ -13,9 +13,9 @@ mongoose.connect(config.database);
  */
 
 app.set('view engine', 'jade');
-//app.set('views', path.join(__dirname + '/app/views'));
-// The above through an error, the below works
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname + '/app/views'));
+
+var collegeController = require(__dirname + '/app/routes/controller/college');
 
 // Logging
 app.use(morgan('dev'));
@@ -28,6 +28,8 @@ app.use('/api', apiRouter);
 app.listen(config.port);
 console.log('The app is running on port ' + config.port);
 
-app.get('/list-colleges', function(req, res){
-	res.render('/listColleges');
-});
+// app.get('/list-colleges', function(req, res){
+// 	res.render('listColleges');
+// });
+
+app.get('/list-colleges', collegeController.list);
