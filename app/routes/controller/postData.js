@@ -1,4 +1,4 @@
-var csv = require('csv'),
+/*var csv = require('csv'),
     fs = require('fs'),
     College = require('./../../models/College'),
     config = require('../../../config');
@@ -22,3 +22,8 @@ stream.pipe(parser);
 stream.on('end', function() {
     console.log('DONE');
 });
+*/
+
+module.exports = function(req, res) {
+    res.send('Post');
+}
