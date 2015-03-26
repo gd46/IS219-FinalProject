@@ -1,5 +1,5 @@
-var getDataController = require('./controller/getData'),
-    postDataController = require('./controller/postData');
+var getDataController = require('./controller/api/getData'),
+    postDataController = require('./controller/api/postData');
 
 module.exports = function(app, express) {
     var apiRouter = express.Router();
