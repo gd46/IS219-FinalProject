@@ -1,3 +1,3 @@
-module.exports = function(req, res) {
-    res.send('Single College');
+module.exports = function(req, res){
+	res.send('Single College');
 };

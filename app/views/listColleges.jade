@@ -1,15 +1,10 @@
 extends ./base
 
 block content
+	h2 Colleges
 	each college in colleges
 		table.pure-table.pure-table-bordered
 			tr
 				td #{college.INSTNM}
-	//- table.pure-table.pure-table-bordered
-		//- tr
-		//- 	td 
-		//- 		a(href='#') College Name
-		//- There will be a loop here to list all of the college names as links 
-		//- that will then go to the individual college detail page.
 		
 
