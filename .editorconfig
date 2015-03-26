@@ -12,15 +12,13 @@ insert_final_newline = true
 # Set default charset
 [*.js]
 charset = utf-8
+indent_style = tab
+indent_size = 4
 
 # 4 space indentation
 [*.jade]
 indent_style = space
 indent_size = 2
-
-# Tab indentation (no size specified)
-[*.js]
-indent_style = tab
 
 # Indentation override for all JS under lib directory
 [lib/**.js]
