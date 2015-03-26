@@ -1,3 +1,9 @@
+var College = require('../../../models/College');
+
 module.exports = function(req, res) {
-    res.send('All College');
+    College.find({}, function(err, data) {
+        if (err) throw err;
+
+        res.json(data);
+    });
 };
