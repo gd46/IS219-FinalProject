@@ -1,8 +1,9 @@
 .silly-text{
 	font-family: 'Love Ya Like A Sister', cursive;
-	color: white;
+	/*color: white;*/
+	color: black;
 }
-body{
+body.404{
 	background:rebeccapurple;
 }	
 .wrap{
@@ -46,6 +47,10 @@ body{
 }
 .footer{
 	background-color: #2caae2;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 ul.menu li a, div.footer ul li p{
 	color: white;
@@ -56,4 +61,11 @@ ul.menu li a:hover{
 }
 .legal-copyright{
 	margin-left: 30px;
+}
+.container{
+	padding: 2em;
+	line-height: 40px;
+}
+.spacing{
+	letter-spacing: 5px;
 }
