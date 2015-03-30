@@ -1,3 +1,5 @@
-module.exports = function(req, res) {
-    res.send('Single College');
+module.exports = function(req, res){
+	res.render('collegeDetail',{
+		title: 'College Name'
+	});
 };

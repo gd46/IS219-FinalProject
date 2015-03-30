@@ -2,8 +2,10 @@ var College = require('../../../models/College');
 
 module.exports = function(req, res) {
     College.find({}, function(err, data) {
-        if (err) throw err;
-
-        res.json(data);
+        if(err) throw err;
+        res.render('listColleges', {
+        	title: 'Colleges',
+        	colleges: data
+        })
     });
 };

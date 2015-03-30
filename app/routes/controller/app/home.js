@@ -1,3 +1,5 @@
 module.exports = function(req, res) {
-    res.send('Home Page');
+    res.render('index',{
+    	title: 'Project Description'
+    });
 };

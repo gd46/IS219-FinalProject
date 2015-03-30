@@ -13,6 +13,9 @@ module.exports = function(app, express) {
     appRouter.route('/upload')
         .get(getFileUploadController)
         .post(postFileUploadController);
+    appRouter.get('/404', function(req,res){
+    	res.render('404');
+    })
 
     return appRouter;
 }
