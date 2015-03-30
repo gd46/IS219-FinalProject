@@ -1,0 +1,22 @@
+{
+  "name": "IS219-Project1",
+  "version": "1.0.0",
+  "homepage": "https://github.com/binoy14/IS219-Project1",
+  "authors": [
+    "Giuseppe DiBella <gd46@njit.edu>"
+  ],
+  "main": "sever.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "animate.css": "~3.2.6"
+  }
+}
