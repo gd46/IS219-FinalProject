@@ -36,7 +36,7 @@ var apiRouter = require('./app/routes/api')(app, express);
 app.use('/api', apiRouter);
 
 app.get('*', function(req, res){
-	res.render('404');
+	res.sendFile(path.join(__dirname + '/public/404.html'));
 });
 
 app.listen(config.port);
