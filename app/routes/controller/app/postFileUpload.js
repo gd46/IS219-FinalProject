@@ -1,3 +1,3 @@
 module.exports = function(req, res) {
-    res.send('Post File Upload');
+    res.status(204).end();
 };
