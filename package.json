@@ -27,7 +27,8 @@
     "express": "^4.12.3",
     "jade": "^1.9.2",
     "mongoose": "^3.8.25",
-    "morgan": "^1.5.2"
+    "morgan": "^1.5.2",
+    "multer": "^0.1.8"
   },
   "devDependencies": {
     "gulp": "^3.8.11",

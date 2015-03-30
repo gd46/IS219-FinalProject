@@ -4,7 +4,7 @@ block content
   div.wrap
    h1.spacing=title
 
-   form.pure-form.pure-form-aligned
+   form.pure-form.pure-form-aligned(action='/upload' method='POST' enctype="multipart/form-data")
       fieldset
        div.pure-control-group
           label Upload CSV
