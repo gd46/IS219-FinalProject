@@ -20,11 +20,7 @@ app.set('views', path.join(__dirname + '/app/views'));
 app.use(morgan('dev'));
 
 // File Upload 
-app.use(multer({
-	onFileUploadStart : function(file){
-		console.log('Uploading' +  file);
-	}
-}));
+app.use(multer());
 
 app.use(express.static(__dirname + '/public'));
 
