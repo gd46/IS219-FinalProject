@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     config = require('../../config');
 
 var CollegeSchema = new Schema({
-    college: []
+    college: Schema.Types.Mixed
 }, {
     strict: false
 });

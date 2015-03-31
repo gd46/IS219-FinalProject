@@ -21,9 +21,8 @@ app.use(morgan('dev'));
 
 // File Upload 
 app.use(multer({
-	dest : './uploads',
-	rename : function(fieldname, filename){
-		return 'csv_data';
+	onFileUploadStart : function(file){
+		console.log('Uploading' +  file);
 	}
 }));
 
