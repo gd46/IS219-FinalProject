@@ -1,9 +1,9 @@
 var express = require('express'),
     app = express(),
     morgan = require('morgan'),
-    mongoose = require('mongoose'),
     path = require('path'),
     config = require('./config'),
+    mongoose = require('mongoose'),
     multer = require('multer');
 
 // conect to db
@@ -30,8 +30,8 @@ app.use('/', appRouter);
 var apiRouter = require('./app/routes/api')(app, express);
 app.use('/api', apiRouter);
 
-app.get('*', function(req, res){
-	res.sendFile(path.join(__dirname + '/public/404.html'));
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/404.html'));
 });
 
 app.listen(config.port);
