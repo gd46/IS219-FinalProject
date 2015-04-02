@@ -1,10 +1,12 @@
 extends ./base
 
 block content
-	h1.spacing.animated.fadeIn=title
-	each college in colleges
-		table.pure-table.pure-table-bordered
-			tr
-				td #{college.INSTNM}
-		
+  h1.spacing.animated.fadeIn=title
+  div.pure-g
+    div.pure-u-7-24.center
+      table.pure-table.pure-table-bordered
+        each college in colleges
+          tr
+            td #{college.INSTNM}
+      
 

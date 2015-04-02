@@ -5,7 +5,7 @@ var config = require('../../../../config'),
 module.exports = function(req, res) {
     College.find({}, function(err, data) {
         if (err) throw err;
-        if (data) {
+        if (data.length > 0) {
             res.render('listColleges', {
                 title: 'All Colleges',
                 colleges: data[0].college
