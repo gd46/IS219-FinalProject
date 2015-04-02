@@ -1,27 +1,30 @@
-var fs = require('fs'),
-	csv = require('csv'),
-	College = require('../../../models/College');
-
-var csvData = {};
-
-var parser = csv.parse(function(err, data){
-	if(err) throw err;
-	csvData = data;
-});
+//Converter Class 
+var Converter = require("csvtojson").core.Converter,
+    fs = require("fs"),
+    config = require('../../../../config'),
+    College = require('../../../models/College');
 
 module.exports = function(req, res) {
-	var stream = fs.createReadStream(req.files.csvFile.path);
-	stream.pipe(parser);
-	parser.on('end', function(){
-		console.log('End Parsing');
-		var colleges = new College({
-			colleges : csvData
-		});
+    var fileStream = fs.createReadStream(req.files.csvFile.path);
+    //new converter instance 
+    var csvConverter = new Converter({
+        constructResult: true
+    });
 
-		colleges.save(function(err, data){
-			if(err) console.log(err);
-			console.log(data);
-    		res.send('File uploaded successfully');
-		});
-	})
+    //end_parsed will be emitted once parsing finished 
+    csvConverter.on("end_parsed", function(jsonObj) {
+        console.log(jsonObj);
+
+        var college = new College({
+            college: jsonObj
+        });
+
+        college.save(function(err, data) {
+            if (err) console.log(err);
+            res.send('File successfully uploaded');
+        });
+    });
+
+    //read from file 
+    fileStream.pipe(csvConverter);
 };

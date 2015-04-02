@@ -1,18 +1,15 @@
-var College = require('../../../models/College');
+var config = require('../../../../config'),
+    MongoClient = require('mongodb').MongoClient,
+    College = require('../../../models/College');
 
 module.exports = function(req, res) {
     College.find({}, function(err, data) {
-        if(err) throw err;
+        if (err) throw err;
+        console.log(data[0].college);
 
-        if(data.length > 0){
-        	res.render('listColleges', {
-        		title: 'Colleges',
-        		colleges: data
-        	});
-        } else{
-        	res.render('uploadFile', {
-        		title: 'File Upload Page'
-        	});    
-        }
-    });
+        res.render('listColleges', {
+            title: 'All Colleges',
+            colleges: data[0].college
+        });
+    })
 };

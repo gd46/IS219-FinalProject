@@ -24,9 +24,12 @@
   "homepage": "https://github.com/binoy14/IS219-Project1",
   "dependencies": {
     "csv": "^0.4.1",
+    "csvtojson": "^0.3.19",
     "express": "^4.12.3",
     "jade": "^1.9.2",
-    "mongoose": "^3.8.25",
+    "lodash": "^3.6.0",
+    "mongodb": "^2.0.25",
+    "mongoose": "^4.0.1",
     "morgan": "^1.5.2",
     "multer": "^0.1.8"
   },
