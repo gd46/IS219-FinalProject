@@ -1,6 +1,5 @@
 var collegeController = require('./controller/app/college'),
     collegesController = require('./controller/app/colleges'),
-    getFileUploadController = require('./controller/app/getFileUpload'),
     postFileUploadController = require('./controller/app/postFileUpload'),
     homeController = require('./controller/app/home');
 
