@@ -3,14 +3,19 @@ var config = require('../../../../config'),
     College = require('../../../models/College');
 
 module.exports = function(req, res) {
-    College.find({}, function(err, data) {
+    College.findOne({}, {
+        'college': {
+            $elemMatch: {
+                "UNITID": parseInt(req.params.id)
+            }
+        }
+    }, function(err, data) {
         if (err) throw err;
-        if (data.length > 0) {
+        if (data) {
             res.render('collegeDetail', {
-                //title: data[0].INSTNM,
-                //details: data[0].college
-                //colleges: data[0].college
+                title: data.college[0].INSTNM,
+                details: data.college[0]
             });
-        } 
+        }
     });
 };

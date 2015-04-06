@@ -11,7 +11,6 @@ module.exports = function(app, express) {
     appRouter.get('/college/:id', collegeController);
     appRouter.get('/colleges', collegesController);
     appRouter.route('/upload')
-        .get(getFileUploadController)
         .post(postFileUploadController);
 
     return appRouter;
