@@ -27,9 +27,6 @@ app.use(express.static(__dirname + '/public'));
 var appRouter = require('./app/routes/app')(app, express);
 app.use('/', appRouter);
 
-var apiRouter = require('./app/routes/api')(app, express);
-app.use('/api', apiRouter);
-
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/404.html'));
 });
