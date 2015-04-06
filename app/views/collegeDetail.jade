@@ -1,8 +1,10 @@
 extends ./base
 
-table.pure-table.pure-table-bordered
-	thead
-		tr
-			td 
-	//- This will have a loop here to list all of the details about
-	//- that specific college.
+block content
+  div.pure-g
+    h1.spacing.animated.fadeIn.pure-u-1=title
+    div.pure-u-7-24.center
+      table.pure-table.pure-table-bordered
+        each detail in details
+          tr
+            td #{detail.INSTNM}
