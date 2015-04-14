@@ -12,7 +12,9 @@ module.exports = function(app, express) {
     appRouter.get('/colleges', collegesController);
     appRouter.route('/upload')
         .post(postFileUploadController);
-    appRouter.get('/chart', chartController);
+    appRouter.get('/q1', chartController.q1);
+    appRouter.get('/q2', chartController.q2);
+    appRouter.get('/q3', chartController.q3);
 
     return appRouter;
 }
