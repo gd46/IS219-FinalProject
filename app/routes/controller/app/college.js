@@ -1,5 +1,4 @@
 var config = require('../../../../config'),
-    MongoClient = require('mongodb').MongoClient,
     College = require('../../../models/College');
 
 module.exports = function(req, res) {
