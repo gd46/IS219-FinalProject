@@ -8,7 +8,11 @@ module.exports = function(req, res) {
     var collegeData = [];
     Enrollment.find({}, function(err, data) {
         if (err) throw err;
-        if (data) {
+        if (data.length === 0) {
+            res.render('uploadFile', {
+                uploadPath: '/upload/enrollment'
+            });
+        } else {
             var array = _.sortBy(data[0].enrollment, function(num) {
                 return num.EFTOTLT;
             }).reverse();
@@ -41,10 +45,6 @@ module.exports = function(req, res) {
                     if (err) throw err;
                     res.json(collegeData);
                 });
-        } else {
-            res.render('uploadFile', {
-                uploadPath: '/upload/enrollment'
-            });
         }
     });
 };
