@@ -1,5 +1,4 @@
-var config = require('../../../../config'),
-    _ = require('lodash'),
+var _ = require('lodash'),
     async = require('async'),
     College = require('../../../models/College'),
     Enrollment = require('../../../models/Enrollment');
@@ -18,6 +17,7 @@ module.exports = function(req, res) {
             }).reverse();
             var length = array.length - 1;
             array.splice(10, length);
+            var jsonData = {};
             async.forEach(array,
                 function(item, callback) {
                     College.findOne({}, {
@@ -29,7 +29,6 @@ module.exports = function(req, res) {
                     }, function(err, clg) {
                         if (err) throw err;
                         if (clg) {
-                            var jsonData = {};
                             jsonData['name'] = clg.college[0].INSTNM;
                             jsonData['enrollment'] = item.EFTOTLT;
                             collegeData.push(jsonData);
@@ -43,6 +42,7 @@ module.exports = function(req, res) {
                 },
                 function(err) {
                     if (err) throw err;
+                    console.log(collegeData);
                     res.json(collegeData);
                 });
         }
