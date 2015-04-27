@@ -1,5 +1,4 @@
 var config = require('../../../../config'),
-    MongoClient = require('mongodb').MongoClient,
     College = require('../../../models/College');
 
 module.exports = function(req, res) {
@@ -13,6 +12,7 @@ module.exports = function(req, res) {
         } else {
             res.render('uploadFile', {
                 title: 'File Upload Page',
+                uploadPath: '/upload/college/'
             });
         }
     });
