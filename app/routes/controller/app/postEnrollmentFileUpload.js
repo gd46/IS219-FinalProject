@@ -1,8 +1,7 @@
 //Converter Class 
 var Converter = require("csvtojson").core.Converter,
     fs = require("fs"),
-    config = require('../../../../config'),
-    College = require('../../../models/College');
+    Enrollment = require('../../../models/Enrollment');
 
 module.exports = function(req, res) {
     var fileStream = fs.createReadStream(req.files.csvFile.path);
@@ -15,11 +14,11 @@ module.exports = function(req, res) {
     csvConverter.on("end_parsed", function(jsonObj) {
         console.log(jsonObj);
 
-        var college = new College({
-            college: jsonObj
+        var enrollment = new Enrollment({
+            enrollment: jsonObj
         });
 
-        college.save(function(err, data) {
+        enrollment.save(function(err, data) {
             if (err) console.log(err);
             res.send('File successfully uploaded');
         });
