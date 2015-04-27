@@ -12,6 +12,7 @@ module.exports = function(req, res) {
         } else {
             res.render('uploadFile', {
                 title: 'File Upload Page',
+                uploadPath: '/upload/college/'
             });
         }
     });
