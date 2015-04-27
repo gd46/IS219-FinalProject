@@ -14,9 +14,9 @@ module.exports = function(app, express) {
     appRouter.get('/colleges', collegesController);
     appRouter.post('/upload/college', postCollegeFileUploadController);
     appRouter.post('/upload/enrollment', postEnrollmentFileUploadController)
-    appRouter.get('/q1', q1Controller);
-    appRouter.get('/q2', chartController.q2);
-    appRouter.get('/q3', chartController.q3);
+    appRouter.get('/api/q1', q1Controller);
+    appRouter.get('/api/q2', chartController.q2);
+    appRouter.get('/api/q3', chartController.q3);
 
     return appRouter;
 }
