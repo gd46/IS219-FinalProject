@@ -4,7 +4,7 @@ block content
   div.wrap
    h1.spacing.animated.fadeIn=title
 
-   form#form.pure-form.pure-form-aligned(action='/upload' method='POST' enctype="multipart/form-data")
+   form#form.pure-form.pure-form-aligned(action='#{uploadPath}' method='POST' enctype="multipart/form-data")
       fieldset
        div#loading-text
          ul
