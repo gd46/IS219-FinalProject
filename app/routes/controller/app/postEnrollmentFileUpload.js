@@ -12,8 +12,6 @@ module.exports = function(req, res) {
 
     //end_parsed will be emitted once parsing finished 
     csvConverter.on("end_parsed", function(jsonObj) {
-        console.log(jsonObj);
-
         var enrollment = new Enrollment({
             enrollment: jsonObj
         });
