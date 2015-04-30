@@ -1,5 +1,4 @@
-var config = require('../../../../config'),
-    College = require('../../../models/College');
+var College = require('../../../models/College');
 
 module.exports = function(req, res) {
     College.find({}, function(err, data) {
@@ -7,6 +6,7 @@ module.exports = function(req, res) {
         if (data.length > 0) {
             res.render('listColleges', {
                 title: 'All Colleges',
+                url: '/college/',
                 colleges: data[0].college
             });
         } else {
