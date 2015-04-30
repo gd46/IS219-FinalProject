@@ -5,46 +5,35 @@ var _ = require('lodash'),
 
 module.exports = function(req, res) {
     var collegeData = [];
-    Enrollment.find({}, function(err, data) {
+    Enrollment.findOne({}, {
+        'enrollment': {
+            $elemMatch: {
+                "UNITID": parseInt(req.params.id)
+            }
+        }
+    }, function(err, enrollment) {
         if (err) throw err;
-        if (data.length === 0) {
-            res.render('uploadFile', {
-                uploadPath: '/upload/enrollment'
-            });
-        } else {
-            var array = _.sortBy(data[0].enrollment, function(num) {
-                return num.EFTOTLT;
-            }).reverse();
-            var length = array.length - 1;
-            array.splice(10, length);
-            var jsonData = {};
-            async.forEach(array,
-                function(item, callback) {
-                    College.findOne({}, {
-                        'college': {
-                            $elemMatch: {
-                                "UNITID": parseInt(item.UNITID)
-                            }
-                        }
-                    }, function(err, clg) {
-                        if (err) throw err;
-                        if (clg) {
-                            jsonData['name'] = clg.college[0].INSTNM;
-                            jsonData['enrollment'] = item.EFTOTLT;
-                            collegeData.push(jsonData);
-                            callback();
-                        } else {
-                            res.render('uploadFile', {
-                                uploadPath: '/upload/college/'
-                            });
-                        }
+        if (enrollment) {
+            var UNITID = enrollment.enrollment[0].UNITID;
+            var EFTOTLM = enrollment.enrollment[0].EFTOTLM;
+            var EFTOTLW = enrollment.enrollment[0].EFTOTLW;
+            College.findOne({}, {
+                'college': {
+                    $elemMatch: {
+                        "UNITID": UNITID
+                    }
+                }
+            }, function(err, college) {
+                if (err) throw err;
+                if (college) {
+                    res.json({
+                        INSTNM: college.college[0].INSTNM,
+                        UNITID: UNITID,
+                        EFTOTLM: EFTOTLM,
+                        EFTOTLW: EFTOTLW
                     });
-                },
-                function(err) {
-                    if (err) throw err;
-                    console.log(collegeData);
-                    res.json(collegeData);
-                });
+                }
+            });
         }
     });
 };
