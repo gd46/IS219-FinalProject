@@ -36,7 +36,7 @@ $(document).ready(function() {
                         },
                         yAxis: {
                             title: {
-                                text: 'Colleges'
+                                text: 'Enrollment'
                             }
                         },
                         series: finalData
