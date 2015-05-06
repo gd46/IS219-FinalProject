@@ -9,4 +9,4 @@ test('isEven()', function() {
     ok(isEven(-4), 'So is negative four');
     ok(!isEven(1), 'One is not an even number');
     ok(!isEven(-7), 'Neither is negative seven');
-})
+});
