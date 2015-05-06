@@ -26,6 +26,24 @@ exports.q2SpecificCollege = function(req, res) {
     res.render('q2');
 };
 
-exports.q3 = function(req, res) {
+exports.q3SpecificCollege = function(req, res){
     res.render('q3');
+};
+
+exports.q3 = function(req, res) {
+    College.find({}, function(err, data) {
+        if (err) throw err;
+        if (data.length > 0) {
+            res.render('listColleges', {
+                title: 'All Colleges',
+                url: '/q3/',
+                colleges: data[0].college
+            });
+        } else {
+            res.render('uploadFile', {
+                title: 'File Upload Page',
+                uploadPath: '/upload/tuition/'
+            });
+        }
+    });
 };

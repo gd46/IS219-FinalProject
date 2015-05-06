@@ -1,81 +1,34 @@
 $(document).ready(function() {
-	
-	// $('#container').highcharts({
-	// 	    chart: {
-	// 	        type: 'bar'
-	// 	    },
-	// 	    title: {
-	// 	        text: 'Fruit Consumption'
-	// 	    },
-	// 	    xAxis: {
-	// 	        categories: ['Apples', 'Bananas', 'Oranges']
-	// 	    },
-	// 	    yAxis: {
-	// 	        title: {
-	// 	            text: 'Fruit eaten'
-	// 	        }
-	// 	    },
-	// 	    series: [{
-	// 	        name: 'Jane',
-	// 	        data: [1, 0, 4]
-	// 	    }, {
-	// 	        name: 'John',
-	// 	        data: [5, 7, 3]
-	// 	    }]
-	// 	});
-
-	
-
-	
-
-	var test = {
-			data: [{
-	            studentName: 'John',
-	            data: [5, 3, 4]
-	        }, {
-	            studentName: 'Jane',
-	            data: [2, 2, 3]
-	        }, {
-	            studentName: 'Joe',
-	            data: [3, 4, 4]
-	        }]
-		};
-		series = [],
-		len = test.data.length,
-		i = 0;
-	for(i; i<len;i++){
-		console.log(i);
-		series.push({
-			name: test.data[i].studentName,
-			data: test.data[i].data
-		});
-	}
-		$('#container').highcharts({
-		    chart: {
-		        type: 'bar'
-		    },
-		    title: {
-		        text: 'Students'
-		    },
-		    xAxis: {
-		        categories: ['Apples', "Oranges", "Pairs"]
-		    },
-		    yAxis: {
-		        title: {
-		            text: 'Number of students'
-		        }
-		    },
-		    series: series
-
-		    //test.data
-		    // series: [{
-		    //     name: 'Males',
-		    //     //data: [test.students.male]
-		    //     data: [1200]
-		    // }, {
-		    //     name: 'Females',
-		    //     //data: [test.students.female]
-		    //     data: [500]
-		    // }]
-		});
+	var tuitionData = [];
+	var finalData = [];
+	var name;
+    var param = location.href;
+    param = param.match(/\/(\d+)/);
+    param = param[1];
+    $.ajax({
+        url: "/api/q3/" + param,
+        success: function(data) {
+			name = data.INSTNM;
+			tuitionData.push(data.Tuition_09);
+			tuitionData.push(data.Tuition_10);
+			tuitionData.push(data.Tuition_11);
+			finalData.push({
+				name : name,
+				data : tuitionData
+			});
+            $('#container').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                },
+                xAxis : {
+                	categories : ['2009', '2010', '2011']
+                },
+                title: {
+                    text: data.INSTNM + ' Tuition Change'
+                },
+                series: finalData
+            });
+        }
+    });
 });
