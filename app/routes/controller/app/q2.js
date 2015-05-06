@@ -1,5 +1,4 @@
-var _ = require('lodash'),
-    async = require('async'),
+var async = require('async'),
     College = require('../../../models/College'),
     Enrollment = require('../../../models/Enrollment');
 
