@@ -39,6 +39,7 @@
     "chai-http": "^1.0.0",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.9.4",
+    "gulp-mocha": "^2.0.1",
     "qunit": "^0.7.6"
   }
 }
