@@ -2,6 +2,7 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 var expect = chai.expect;
 var assert = chai.assert;
+var QUnit = require('qunit');
 
 chai.use(chaiHttp);
 
@@ -63,5 +64,10 @@ describe("App", function() {
                 });
         });
     });
+
+    QUnit.test("title", function(assert) {
+        var title = $('.spacing.animated.fadeIn').value();
+        console.log(title);
+    })
 
 });
