@@ -27,6 +27,10 @@ app.use(express.static(__dirname + '/public'));
 var appRouter = require('./app/routes/app')(app, express);
 app.use('/', appRouter);
 
+app.get('/qunit', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/qunit.html'));
+});
+
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/404.html'));
 });
