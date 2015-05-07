@@ -36,10 +36,13 @@
   },
   "devDependencies": {
     "chai": "^2.3.0",
+    "chai-as-promised": "^5.0.0",
     "chai-http": "^1.0.0",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.9.4",
     "gulp-mocha": "^2.0.1",
+    "mocha": "^2.2.4",
+    "protractor": "^2.0.0",
     "qunit": "^0.7.6"
   }
 }
