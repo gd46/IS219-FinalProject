@@ -77,6 +77,16 @@ describe("e2e Tests", function() {
         });
     });
 
+    describe("Catch any routes that dont exist", function() {
+        it("should display the 404 error page", function() {
+            browser.get(browser.baseUrl + '/noroute');
+            var el = element(by.css('div.error'));
+            var isPresent = browser.isElementPresent(el);
+            browser.sleep(5000);
+            assert.eventually.isTrue(isPresent, "should be on the 404 error page");
+        });
+    });
+
 
 
 
